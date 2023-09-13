@@ -1,1 +1,1 @@
-env -i USER=shell "$(PATH=/system/xbin:/system/bin:/su/bin:/sbin:/magisk/.core/bin which su)" shell -g 2000 -G 1004 -G 1007 -G 1011 -G 1015 -G 1028 -G 1078 -G 1079 -G 3001 -G 3002 -G 3003 -G 3006 -G 3009 -G 3011 -G 3012 --context u:r:shell:s0 --shell /system/bin/sh --command $@
+psu -c $@
