@@ -1,4 +1,4 @@
-# psudo
+# psu
 A simple tool to fake adb shell with su.
 
 ### Credits
