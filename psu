@@ -1,1 +1,17 @@
-env -i USER=shell "$(PATH=/system/xbin:/system/bin:/su/bin:/sbin:/magisk/.core/bin which su)" shell -g 2000 -G 1004 -G 1007 -G 1011 -G 1015 -G 1028 -G 1078 -G 1079 -G 3001 -G 3002 -G 3003 -G 3006 -G 3009 -G 3011 -G 3012 --context u:r:shell:s0 --shell /system/bin/sh $@
+env -C / -i \
+ANDROID_DATA=/data \
+ANDROID_TZDATA_ROOT=/apex/com.android.tzdata \
+ANDROID_ASSETS=/system/app \
+ANDROID_ART_ROOT=/apex/com.android.art \
+ANDROID_STORAGE=/storage \
+EXTERNAL_STORAGE=/sdcard \
+MEMTAG_OPTIONS=off \
+DOWNLOAD_CACHE=/data/cache \
+ASEC_MOUNTPOINT=/mnt/asec \
+HOSTNAME=$(getprop ro.product.device) \
+TMPDIR=/data/local/tmp \
+ANDROID_ROOT=/system \
+ANDROID_I18N_ROOT=/apex/com.android.i18n \
+"$(PATH=/system/xbin:/system/bin:/su/bin:/sbin:/magisk/.core/bin which su)" shell -g 2000 \
+-G 1004 -G 1007 -G 1011 -G 1015 -G 1028 -G 1078 -G 1079 -G 3001 -G 3002 -G 3003 -G 3006 -G 3009 -G 3011 -G 3012 \
+--context u:r:shell:s0 --shell /bin/sh $@
